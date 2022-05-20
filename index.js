@@ -1,34 +1,59 @@
 const http =require('http');
-const port = 3000;
+const port = 5000;
 const fs = require('fs')
 const path = require('path');
 
 const server =http.createServer((request, response)=>
 {
-    response.write('Hello ! I`m trying to Figure out how to Build a Basic Web Server with Node JS')
-    response.end();
-});
+    let filePath = path.join(
+        __dirname,
+        './view',
+        req.url==='./' ? "index.html" : request.url
+    );
 
-function requestResponseFunc(request,response){
+    let extensionname = path.extensionname(filePath)
+    let contentType ='text/html';
 
-    let fileName = request.url;
-
-    let fileAddress = __dirname+"\\"+fileName.slice(1,);
-
-    if (fileAddress === "./"){
-        fileAddress = "./index.html";
+    switch(extensionname){
+        case ".js" :
+            contentType="text/javascript";
+            break;
+        case ".css" :
+            contentType="text/css";
+            break;
+        case ".png" :
+            contentType="image/png";
+            break;
     }
-    let fileExtention = path.extname(fileAddress);
+
+if (contentType==="text/html" && extensionname==='' ){
+    filePath+= '.html' ;
 }
+
+fs.readFile(filePath,
+    (error , data) =>{
+        if (error)
+            {
+                console.log('something went wrong', err)
+            }
+            else{
+                res.writehead(200 , {'content-type' : contentType} );
+                res.end('data'); 
+            }
+    }
+    )
+});
 
 server.listen(port, function(error)
 {
     if (error)
     {
-        console.log('something went wrong', error)
+        console.log('something went wrong', err)
     }
     else{
-        console.log("server listening at http://localhost:3000");
+        // res.writehead(200 'content-type' 'text/html' )
+        // res.writehead(200 'content-type' 'text/css' )
+
     }
 
 })
