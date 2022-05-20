@@ -1,0 +1,20 @@
+{
+  "name": "farzaneh-nodejs-webserver",
+  "version": "1.0.0",
+  "description": "A simple webserver",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lo-Agency-Internship/Farzaneh-nodejs-webserver.git"
+  },
+  "author": "Ferizana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lo-Agency-Internship/Farzaneh-nodejs-webserver/issues"
+  },
+  "homepage": "https://github.com/Lo-Agency-Internship/Farzaneh-nodejs-webserver#readme"
+}
