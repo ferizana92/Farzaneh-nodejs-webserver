@@ -20,5 +20,7 @@ Copy the server.js and package.json files on your desired directory.
 ```bash
   npm run start
 ```
+Also you should copy your files in the folder of view
+
 ## Author
 Ferizana
